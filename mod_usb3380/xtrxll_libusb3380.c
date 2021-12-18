@@ -612,7 +612,7 @@ static int xtrxllusb3380v0_open(const char* device, unsigned flags,
 		goto usbinit_fail;
 	}
 
-	dev = (struct xtrxll_usb3380_dev*)malloc(sizeof(struct xtrxll_usb3380_dev));
+	dev = (struct xtrxll_usb3380_dev*)calloc(1, sizeof(struct xtrxll_usb3380_dev));
 	if (dev == NULL) {
 		res = errno;
 		XTRXLLS_LOG("USB3", XTRXLL_ERROR, "Can't allocate memory for device `%s`: %s\n",
